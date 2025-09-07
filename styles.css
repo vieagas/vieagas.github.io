@@ -1,0 +1,96 @@
+/* Reset Básico e Configuração Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Evita barras de rolagem */
+    cursor: none; /* Esconde o cursor padrão do sistema */
+    background-color: #0a0a0a; /* Preto profundo, mas não 100% */
+    color: #e2e2e2; /* Branco suave */
+}
+
+/* O Cursor Customizado */
+.cursor {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none; /* Permite clicar através dele */
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    z-index: 9999;
+}
+
+.cursor.hovered {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(226, 226, 226, 0.2);
+}
+
+/* Layout Principal */
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Conteúdo Central com Animação */
+.content {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(20px); /* Começa ligeiramente para baixo */
+    animation: fadeIn 1.5s ease-out 0.5s forwards; /* Animação de entrada */
+}
+
+.title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(2.5rem, 8vw, 5rem); /* Tamanho de fonte responsivo */
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    margin-top: 0.5rem;
+    color: #a0a0a0; /* Cinza para contraste sutil */
+}
+
+/* Rodapé com Link Social */
+footer {
+    position: absolute;
+    bottom: 40px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out 1s forwards; /* Entra um pouco depois */
+}
+
+.social-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    text-decoration: none;
+    color: #a0a0a0;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #e2e2e2;
+}
+
+/* Animação Keyframes */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
